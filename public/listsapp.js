@@ -29,7 +29,7 @@ add.addEventListener("click", async () => {
   insert();
 });
 randamadd.addEventListener("click", async () => {
-  const bored = await fetch("http://www.boredapi.com/api/activity");
+  const bored = await fetch("https://www.boredapi.com/api/activity");
   const fbored = await bored.json();
   console.log(fbored.activity);
   const res = await fetch(
