@@ -16,7 +16,7 @@ const input = document.querySelector("#newtodo");
 async function insert() {
   if (input.value !== "") {
     const res = await fetch(
-      `http://localhost:3000/kakarot/newtodo/${input.value}`
+      `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${input.value}`
     );
     const nb = document.createElement("li");
     nb.classList.add("data");
@@ -33,7 +33,7 @@ randamadd.addEventListener("click", async () => {
   const fbored = await bored.json();
   console.log(fbored.activity);
   const res = await fetch(
-    `http://localhost:3000/kakarot/newtodo/${fbored.activity}`
+    `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${fbored.activity}`
   );
   const nb = document.createElement("li");
   nb.classList.add("data");
@@ -42,7 +42,7 @@ randamadd.addEventListener("click", async () => {
 });
 ol.addEventListener("click", async (e) => {
   const res = await fetch(
-    `http://localhost:3000/kakarot/${e.target.innerText}`
+    `https://theultimatetodoapp.herokuapp.com/kakarot/${e.target.innerText}`
   );
   e.target.parentNode.removeChild(e.target);
 });
