@@ -5,7 +5,7 @@ const notavailable = document.querySelector(".usernamenotavailable");
 userinput.addEventListener("input", async () => {
   if (userinput.value != "") {
     const length = await fetch(
-      `https://ultimatetodo.herokuapp.com/isusernameavailable/${userinput.value}`
+      `https://theultimatetodoapp.herokuapp.com/isusernameavailable/${userinput.value}`
     );
     const flength = await length.json();
     if (flength == 0) {
