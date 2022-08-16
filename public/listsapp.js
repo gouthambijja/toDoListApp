@@ -31,7 +31,6 @@ add.addEventListener("click", async () => {
 randamadd.addEventListener("click", async () => {
   const bored = await fetch("https://www.boredapi.com/api/activity");
   const fbored = await bored.json();
-  console.log(fbored.activity);
   const res = await fetch(
     `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${fbored.activity}`
   );
