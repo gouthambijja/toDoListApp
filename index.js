@@ -39,7 +39,10 @@ app.use(
 app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
-  res.render("list/index");
+  if (req.session.username !== undefined) {
+    const list = await List.findOne({ username: req.session.username });
+    res.render("list/list", { list });
+  } else res.render("list/index");
 });
 app.get("/kakarot/signup", (req, res) => {
   res.render("list/signup");
