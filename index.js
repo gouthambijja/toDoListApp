@@ -6,6 +6,7 @@ const app = express();
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const Username = require("./user");
+const cors = require("cors");
 const List = require("./lists");
 const sessions = require("express-session");
 const session = require("express-session");
@@ -26,6 +27,7 @@ app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + "/public"));
 app.use(urlencoded({ extended: true }));
+app.use(cors());
 app.use(
   sessions({
     secret: "sharingan key",
