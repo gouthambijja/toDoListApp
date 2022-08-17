@@ -29,14 +29,14 @@ add.addEventListener("click", async () => {
   insert();
 });
 randamadd.addEventListener("click", async () => {
-  const bored = await fetch("https://www.boredapi.com/api/activity");
+  const bored = await fetch("https://icanhazdadjoke.com",{headers:{Accept:"application/json"}});
   const fbored = await bored.json();
   const res = await fetch(
-    `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${fbored.activity}`
+    `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${fbored.joke}`
   );
   const nb = document.createElement("li");
   nb.classList.add("data");
-  nb.innerText = `${fbored.activity}`;
+  nb.innerText = `${fbored.joke}`;
   ol.append(nb);
 });
 ol.addEventListener("click", async (e) => {
