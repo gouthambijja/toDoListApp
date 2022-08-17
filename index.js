@@ -38,7 +38,7 @@ app.use(
 );
 app.use(methodOverride("_method"));
 
-app.get("/", (req, res) => {
+app.get("/", async(req, res) => {
   if (req.session.username !== undefined) {
     const list = await List.findOne({ username: req.session.username });
     res.render("list/list", { list });
