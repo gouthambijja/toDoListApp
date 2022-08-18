@@ -36,6 +36,7 @@ randamadd.addEventListener("click", async () => {
     `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo?string=${fbored.joke}`,
     { mode: "no-cors" }
   );
+  console.log(`https://theultimatetodoapp.herokuapp.com/kakarot/newtodo?string=${fbored.joke}`);
   const nb = document.createElement("li");
   nb.classList.add("data");
   nb.innerText = `${fbored.joke}`;
