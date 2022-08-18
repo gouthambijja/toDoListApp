@@ -27,9 +27,7 @@ app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + "/public"));
 app.use(urlencoded({ extended: true }));
-app.use(cors({
-  origin:'*'
-}));
+app.use(cors());
 app.use(
   sessions({
     secret: "sharingan key",
@@ -95,8 +93,8 @@ app.get("/kakarot", async (req, res) => {
   const list = await List.findOne({ username: req.session.username });
   res.render("list/list", { list });
 });
-app.get("/kakarot/newtodo", async (req, res) => {
-  const todo = req.query.string;
+app.get("/kakarot/newtodo/:todo", async (req, res) => {
+  const todo = req.params.todo;
   const userdata = await List.findOne({ username: req.session.username });
   userdata.data.push(todo);
   await List.updateOne({ username: req.session.username }, userdata, {
