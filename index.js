@@ -106,6 +106,7 @@ app.get("/kakarot/newtodo", async (req, res) => {
 });
 app.get("/kakarot", async (req, res) => {
   const username = req.session.username;
+  console.log(req.query.string);
   const string = req.query.string;
   const list = await List.findOne({ username: username });
   list.data.splice(list.data.indexOf(string), 1);
