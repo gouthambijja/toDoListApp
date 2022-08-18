@@ -47,7 +47,7 @@ ol.addEventListener("click", async (e) => {
     `https://theultimatetodoapp.herokuapp.com/kakarot?string=${e.target.innerText}`,
     { mode: "no-cors" }
   );
-  console.log(`https://theultimatetodoapp.herokuapp.com/kakarot?string=${e.target.innerText}`);
+  console.log(`https://theultimatetodoapp.herokuapp.com/kakarot/`${e.target.innerText}`);
   e.target.parentNode.removeChild(e.target);
 });
 input.addEventListener("keydown", (e) => {
