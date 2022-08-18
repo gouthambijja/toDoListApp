@@ -99,6 +99,7 @@ app.get("/kakarot/newtodo/:todo", async (req, res) => {
   userdata.data.push(todo);
   await List.updateOne({ username: req.session.username }, userdata, {
     runValidators: true,
+    new:true,
   });
   res.sendStatus(200);
 });
@@ -109,6 +110,7 @@ app.get("/kakarot/:string", async (req, res) => {
   list.data.splice(list.data.indexOf(string), 1);
   await List.updateOne({ username: username }, list, {
     runValidators: true,
+    new:true,
   });
   res.sendStatus(200);
 });
