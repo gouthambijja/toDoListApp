@@ -16,7 +16,7 @@ const input = document.querySelector("#newtodo");
 async function insert() {
   if (input.value !== "") {
     const res = await fetch(
-      `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${input.value}`
+      `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${input.value}`,{mode:'no-cors'}
     );
     const nb = document.createElement("li");
     nb.classList.add("data");
@@ -32,7 +32,7 @@ randamadd.addEventListener("click", async () => {
   const bored = await fetch("https://icanhazdadjoke.com",{headers:{Accept:"application/json"}});
   const fbored = await bored.json();
   const res = await fetch(
-    `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${fbored.joke}`
+    `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${fbored.joke}`,{mode:'no-cors'}
   );
   const nb = document.createElement("li");
   nb.classList.add("data");
@@ -41,7 +41,7 @@ randamadd.addEventListener("click", async () => {
 });
 ol.addEventListener("click", async (e) => {
   const res = await fetch(
-    `https://theultimatetodoapp.herokuapp.com/kakarot/${e.target.innerText}`
+    `https://theultimatetodoapp.herokuapp.com/kakarot/${e.target.innerText}`,{mode:'no-cors'}
   );
   e.target.parentNode.removeChild(e.target);
 });
