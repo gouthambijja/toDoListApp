@@ -16,12 +16,11 @@ const input = document.querySelector("#newtodo");
 async function insert() {
   if (input.value !== "") {
     const res = await fetch(
-      `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo?string="${input.value}"`,
-    { mode: "no-cors" }
+      `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${input.value}`
     );
     const nb = document.createElement("li");
     nb.classList.add("data");
-    nb.innerText = `"${input.value}"`;
+    nb.innerText = `${input.value}`;
     ol.append(nb);
     input.value = "";
   }
@@ -30,21 +29,19 @@ add.addEventListener("click", async () => {
   insert();
 });
 randamadd.addEventListener("click", async () => {
-  const bored = await fetch("https://icanhazdadjoke.com",{headers:{Accept:"application/json"}});
+  const bored = await fetch("https://www.boredapi.com/api/activity");
   const fbored = await bored.json();
   const res = await fetch(
-    `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo?string="${fbored.joke}"`,
-    { mode: "no-cors" }
+    `https://theultimatetodoapp.herokuapp.com/kakarot/newtodo/${fbored.activity}`
   );
   const nb = document.createElement("li");
   nb.classList.add("data");
-  nb.innerText = `"${fbored.joke}"`;
+  nb.innerText = `${fbored.activity}`;
   ol.append(nb);
 });
 ol.addEventListener("click", async (e) => {
   const res = await fetch(
-    `https://theultimatetodoapp.herokuapp.com/kakarot/"${e.target.innerText}"`,
-    { mode: "no-cors" }
+    `https://theultimatetodoapp.herokuapp.com/kakarot/${e.target.innerText}`
   );
   e.target.parentNode.removeChild(e.target);
 });
