@@ -21,7 +21,7 @@ async function insert() {
     );
     const nb = document.createElement("li");
     nb.classList.add("data");
-    nb.innerText = `${input.value}`;
+    nb.innerText = `"${input.value}"`;
     ol.append(nb);
     input.value = "";
   }
@@ -39,7 +39,7 @@ randamadd.addEventListener("click", async () => {
   console.log(`https://theultimatetodoapp.herokuapp.com/kakarot/newtodo?string=${fbored.joke}`);
   const nb = document.createElement("li");
   nb.classList.add("data");
-  nb.innerText = `${fbored.joke}`;
+  nb.innerText = `"${fbored.joke}"`;
   ol.append(nb);
 });
 ol.addEventListener("click", async (e) => {
